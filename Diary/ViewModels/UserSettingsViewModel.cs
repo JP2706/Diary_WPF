@@ -1,4 +1,6 @@
 ﻿using Diary.Commands;
+using Diary.Models;
+using Diary.Models.Domains;
 using Diary.Models.Wrappers;
 using System;
 using System.Collections.Generic;
@@ -19,77 +21,85 @@ namespace Diary.ViewModels
         //Zrobiłem 4 pola ze względu na to ,że nazwę servera bazy danych(instancję) można podać w sqlServerName np. w ten sposob: (local)/SQLEXPERSS
         public UserSettingsViewModel() 
         {
-            ConfirmCommand = new AsyncRelayCommand(Confirm, CanConfirm);
+            ConfirmCommand = new AsyncRelayCommand(Confirm);
             CloseCommand = new RelayCommand(Close);
-
-            _sqlServerName = Properties.Settings.Default.SqlServerName;
-            _sqlDatabaseName = Properties.Settings.Default.SqlDataBaseName;
-            _sqlLogin = Properties.Settings.Default.SqlLogin;
-            _sqlPassword = Properties.Settings.Default.SqlPassword;
+            UserSettings = new UserSettings();
+            //_sqlServerName = userSetting.SqlServerName;
+            //_sqlDatabaseName = userSetting.SqlDatabaseName;
+            //_sqlLogin = userSetting.SqlLogin;
+            //_sqlPassword = userSetting.SqlPassword;
         }
 
         public ICommand ConfirmCommand { get; set; }
         public ICommand CloseCommand { get; set; }
 
-        private string _sqlServerName;
+        private UserSettings _userSettings;
 
-        public string SqlServerName
+        public UserSettings UserSettings
         {
-            get { return _sqlServerName; }
+            get { return _userSettings; }
             set
             {
-                _sqlServerName = value;
+                _userSettings = value;
                 OnPropertyChanged();
             }
         }
 
-        private string _sqlDatabaseName;
+        //private string _sqlServerName;
 
-        public string SqlDatabaseName
-        {
-            get { return _sqlDatabaseName; }
-            set
-            {
-                _sqlDatabaseName = value;
-                OnPropertyChanged();
-            }
-        }
+        //public string SqlServerName
+        //{
+        //    get { return _sqlServerName; }
+        //    set
+        //    {
+        //        _sqlServerName = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
-        private string _sqlLogin;
+        //private string _sqlDatabaseName;
 
-        public string SqlLogin
-        {
-            get { return _sqlLogin; }
-            set
-            {
-                _sqlLogin = value;
-                OnPropertyChanged();
-            }
-        }
+        //public string SqlDatabaseName
+        //{
+        //    get { return _sqlDatabaseName; }
+        //    set
+        //    {
+        //        _sqlDatabaseName = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
-        private string _sqlPassword;
+        //private string _sqlLogin;
 
-        public string SqlPassword
-        {
-            get { return _sqlPassword; }
-            set
-            {
-                _sqlPassword = value;
-                OnPropertyChanged();
-            }
-        }
+        //public string SqlLogin
+        //{
+        //    get { return _sqlLogin; }
+        //    set
+        //    {
+        //        _sqlLogin = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
+
+        //private string _sqlPassword;
+
+        //public string SqlPassword
+        //{
+        //    get { return _sqlPassword; }
+        //    set
+        //    {
+        //        _sqlPassword = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
         private async Task  Confirm(object obj)
         {
+            if (!_userSettings.IsValid)
+                return;
             await UpdateSqlUserDataAsync();
             CloseWindow(obj as Window);
             Restart();
-        }
-
-
-        private bool CanConfirm(object obj)
-        {
-            return true;
         }
 
         private void Close(object obj)
@@ -105,11 +115,7 @@ namespace Diary.ViewModels
         private async Task UpdateSqlUserDataAsync()
         {
             await Task.Run(() => {
-                Properties.Settings.Default.SqlServerName = _sqlServerName;
-                Properties.Settings.Default.SqlDataBaseName = _sqlDatabaseName;
-                Properties.Settings.Default.SqlLogin = _sqlLogin;
-                Properties.Settings.Default.SqlPassword = _sqlPassword;
-                Properties.Settings.Default.Save();
+                _userSettings.AddToSettings(_userSettings);
             });
         }
 

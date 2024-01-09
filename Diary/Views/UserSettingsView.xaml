@@ -22,13 +22,13 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Label Content="Sql Server:" Margin="10" />
-        <TextBox Text="{Binding SqlServerName}" Grid.Column="1" Margin="10" />
+        <TextBox Text="{Binding UserSettings.SqlServerName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Grid.Column="1" Margin="10" />
         <Label Content="Database Name:" Grid.Row="1" Margin="10" />
-        <TextBox Text="{Binding SqlDatabaseName}" Grid.Column="1" Grid.Row="1" Margin="10" />
+        <TextBox Text="{Binding UserSettings.SqlDatabaseName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Grid.Column="1" Grid.Row="1" Margin="10" />
         <Label Grid.Row="2" Content="Login" Margin="10" />
-        <TextBox Text="{Binding SqlLogin}" Grid.Column="1" Grid.Row="2" Margin="10"/>
+        <TextBox Text="{Binding UserSettings.SqlLogin, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Grid.Column="1" Grid.Row="2" Margin="10"/>
         <Label Grid.Row="3" Content="Hasło:" Margin="10"/>
-        <components:BindablePasswordBox Grid.Column="1" Grid.Row="3" Margin="10" Password="{Binding SqlPassword, Mode=TwoWay}" />
+        <components:BindablePasswordBox Grid.Column="1" Grid.Row="3" Margin="10" Password="{Binding UserSettings.SqlPassword, Mode=TwoWay}" />
         <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" >
             <Button Command="{Binding ConfirmCommand}" CommandParameter="{Binding ElementName=UserSettingsWindow}" Content="Zapisz" Margin="5" Height="25" Width="100"/>
                 <Button Command="{Binding CloseCommand}" CommandParameter="{Binding ElementName=UserSettingsWindow}" Content="Anuluj" Margin="5" Height="25" Width="100"/>
