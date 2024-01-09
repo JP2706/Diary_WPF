@@ -3,16 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="SqlServerName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">(local)</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SqlLogin" Type="System.String" Scope="User">
-      <Value Profile="(Default)">sa</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SqlDataBaseName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Diary</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SqlPassword" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Adminek1!</Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

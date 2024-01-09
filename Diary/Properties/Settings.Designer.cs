@@ -25,7 +25,7 @@ namespace Diary.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("(local)")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SqlServerName {
             get {
                 return ((string)(this["SqlServerName"]));
@@ -37,7 +37,7 @@ namespace Diary.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sa")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SqlLogin {
             get {
                 return ((string)(this["SqlLogin"]));
@@ -49,7 +49,7 @@ namespace Diary.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Diary")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SqlDataBaseName {
             get {
                 return ((string)(this["SqlDataBaseName"]));
@@ -61,7 +61,7 @@ namespace Diary.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Adminek1!")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string SqlPassword {
             get {
                 return ((string)(this["SqlPassword"]));
