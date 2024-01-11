@@ -30,8 +30,8 @@
         <Label Grid.Row="3" Content="Hasło:" Margin="10"/>
         <components:BindablePasswordBox Grid.Column="1" Grid.Row="3" Margin="10" Password="{Binding UserSettings.SqlPassword, Mode=TwoWay}" />
         <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" >
+            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding ElementName=UserSettingsWindow}" Content="Anuluj" Margin="5" Height="25" Width="100"/>
             <Button Command="{Binding ConfirmCommand}" CommandParameter="{Binding ElementName=UserSettingsWindow}" Content="Zapisz" Margin="5" Height="25" Width="100"/>
-                <Button Command="{Binding CloseCommand}" CommandParameter="{Binding ElementName=UserSettingsWindow}" Content="Anuluj" Margin="5" Height="25" Width="100"/>
         </StackPanel>
     </Grid>
 </mah:MetroWindow>

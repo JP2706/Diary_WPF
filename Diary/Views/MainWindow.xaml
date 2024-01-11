@@ -5,9 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Diary"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="Dziennik Ucznia" Height="450" Width="900">
+    <!--Do podpięcia eventu loded(behaviors)-->
+
+    <!--<i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadWindowCommand}"/> Można tu podpiąc event odpowiedzilny za sprawdzenie danych logowani do bazy i wyświetlić monit podczas łądowania aplikacji
+        </i:EventTrigger>
+    </i:Interaction.Triggers>-->
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
